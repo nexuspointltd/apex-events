@@ -64,6 +64,6 @@ class LogApiRequestBroadcast extends AbstractBroadcast
      */
     public function broadcastOn()
     {
-        return ['logsmash.api.' . $this->tenantGuid];
+        return ['log-smash.api.' . $this->tenantGuid];
     }
 }
