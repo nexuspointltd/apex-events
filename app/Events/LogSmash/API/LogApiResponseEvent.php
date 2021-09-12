@@ -2,6 +2,7 @@
 
 namespace Nexus\ApexEvents\Events\LogSmash\API;
 
+use Illuminate\Support\Arr;
 use Nexus\ApexEvents\Events\AbstractEvent;
 use Nexus\ApexEvents\Interfaces\Events\LogSmashEventInterface;
 

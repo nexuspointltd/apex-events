@@ -65,8 +65,7 @@ class LogApiRequestEvent extends AbstractEvent implements LogSmashEventInterface
         string $class,
         string $provider,
         array $request
-    )
-    {
+    ) {
         $this->guid        = $guid;
         $this->environment = $environment;
         $this->timestamp   = $timestamp;
