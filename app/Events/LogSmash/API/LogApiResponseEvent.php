@@ -3,12 +3,13 @@
 namespace Nexus\ApexEvents\Events\LogSmash\API;
 
 use Nexus\ApexEvents\Events\AbstractEvent;
+use Nexus\ApexEvents\Interfaces\Events\LogSmashEventInterface;
 
 /**
  * Class LogApiResponseEvent
  * @package Nexus\ApexEvents\Events\LogSmash
  */
-class LogApiResponseEvent extends AbstractEvent
+class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterface
 {
     /**
      * @var string
