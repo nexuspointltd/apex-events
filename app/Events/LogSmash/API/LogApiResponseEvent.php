@@ -100,13 +100,16 @@ class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterfac
             'class'       => $this->class,
             'provider'    => $this->provider,
             'error'       => $this->error,
+            'request'     => Arr::except($this->request, ['body']),
+            'response'    => Arr::except($this->response, ['body']),
         ];
     }
 
     public function getBlobData()
     {
         return [
-            'response' => $this->request,
+            'request'  => $this->request,
+            'response' => $this->response,
         ];
     }
 }

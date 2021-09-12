@@ -2,6 +2,7 @@
 
 namespace Nexus\ApexEvents\Events\LogSmash\API;
 
+use Illuminate\Support\Arr;
 use Nexus\ApexEvents\Events\AbstractEvent;
 use Nexus\ApexEvents\Interfaces\Events\LogSmashEventInterface;
 
@@ -64,7 +65,8 @@ class LogApiRequestEvent extends AbstractEvent implements LogSmashEventInterface
         string $class,
         string $provider,
         array $request
-    ) {
+    )
+    {
         $this->guid        = $guid;
         $this->environment = $environment;
         $this->timestamp   = $timestamp;
@@ -83,6 +85,7 @@ class LogApiRequestEvent extends AbstractEvent implements LogSmashEventInterface
             'tenant'      => $this->tenant,
             'class'       => $this->class,
             'provider'    => $this->provider,
+            'request'     => Arr::except($this->request, ['body']),
         ];
     }
 
