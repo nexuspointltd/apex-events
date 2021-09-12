@@ -89,4 +89,24 @@ class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterfac
         $this->response    = $response;
         $this->error       = $error;
     }
+
+    public function getMetaData()
+    {
+        return [
+            'guid'        => $this->guid,
+            'environment' => $this->environment,
+            'timestamp'   => $this->timestamp,
+            'tenant'      => $this->tenant,
+            'class'       => $this->class,
+            'provider'    => $this->provider,
+            'error'       => $this->error,
+        ];
+    }
+
+    public function getBlobData()
+    {
+        return [
+            'response' => $this->request,
+        ];
+    }
 }

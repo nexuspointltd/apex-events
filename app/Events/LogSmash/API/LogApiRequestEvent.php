@@ -64,8 +64,7 @@ class LogApiRequestEvent extends AbstractEvent implements LogSmashEventInterface
         string $class,
         string $provider,
         array $request
-    )
-    {
+    ) {
         $this->guid        = $guid;
         $this->environment = $environment;
         $this->timestamp   = $timestamp;
@@ -73,5 +72,24 @@ class LogApiRequestEvent extends AbstractEvent implements LogSmashEventInterface
         $this->class       = $class;
         $this->provider    = $provider;
         $this->request     = $request;
+    }
+
+    public function getMetaData()
+    {
+        return [
+            'guid'        => $this->guid,
+            'environment' => $this->environment,
+            'timestamp'   => $this->timestamp,
+            'tenant'      => $this->tenant,
+            'class'       => $this->class,
+            'provider'    => $this->provider,
+        ];
+    }
+
+    public function getBlobData()
+    {
+        return [
+            'request' => $this->request,
+        ];
     }
 }
