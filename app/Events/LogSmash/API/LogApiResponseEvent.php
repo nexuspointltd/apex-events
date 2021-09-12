@@ -2,7 +2,6 @@
 
 namespace Nexus\ApexEvents\Events\LogSmash\API;
 
-use DateTime;
 use Nexus\ApexEvents\Events\AbstractEvent;
 use Nexus\ApexEvents\Interfaces\Events\LogSmashEventInterface;
 
@@ -23,7 +22,7 @@ class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterfac
     public $environment;
 
     /**
-     * @var DateTime
+     * @var string
      */
     public $timestamp;
 
@@ -61,7 +60,7 @@ class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterfac
      * LogApiRequestEvent constructor.
      * @param string     $guid
      * @param string     $environment
-     * @param DateTime   $timestamp
+     * @param string     $timestamp
      * @param array      $tenant
      * @param string     $class
      * @param string     $provider
@@ -72,7 +71,7 @@ class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterfac
     public function __construct(
         string $guid,
         string $environment,
-        DateTime $timestamp,
+        string $timestamp,
         array $tenant,
         string $class,
         string $provider,

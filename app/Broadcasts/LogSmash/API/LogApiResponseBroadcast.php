@@ -2,8 +2,7 @@
 
 namespace Nexus\ApexEvents\Broadcasts\LogSmash\API;
 
-use DateTime;
-use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
+use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;``
 
 /**
  * Class LogApiResponseBroadcast
@@ -22,7 +21,7 @@ class LogApiResponseBroadcast extends AbstractBroadcast
     public $environment;
 
     /**
-     * @var DateTime
+     * @var string
      */
     public $timestamp;
 
@@ -60,7 +59,7 @@ class LogApiResponseBroadcast extends AbstractBroadcast
      * LogApiRequestEvent constructor.
      * @param string     $guid
      * @param string     $environment
-     * @param DateTime   $timestamp
+     * @param string     $timestamp
      * @param array      $tenant
      * @param string     $class
      * @param string     $provider
@@ -71,7 +70,7 @@ class LogApiResponseBroadcast extends AbstractBroadcast
     public function __construct(
         string $guid,
         string $environment,
-        DateTime $timestamp,
+        string $timestamp,
         array $tenant,
         string $class,
         string $provider,
