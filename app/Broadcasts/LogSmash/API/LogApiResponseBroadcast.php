@@ -2,6 +2,7 @@
 
 namespace Nexus\ApexEvents\Broadcasts\LogSmash\API;
 
+use DateTime;
 use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
 
 /**
@@ -13,64 +14,80 @@ class LogApiResponseBroadcast extends AbstractBroadcast
     /**
      * @var string
      */
-    public $tenantGuid;
+    public $guid;
 
     /**
      * @var string
      */
-    public $tenantName;
+    public $environment;
 
     /**
-     * @var string
+     * @var DateTime
      */
-    public $tenantHostname;
-
-    /**
-     * @var string
-     */
-    public $className;
+    public $timestamp;
 
     /**
      * @var array
      */
-    public $requestData = [];
+    public $tenant;
+
+    /**
+     * @var string
+     */
+    public $class;
+
+    /**
+     * @var string
+     */
+    public $provider;
 
     /**
      * @var array
      */
-    public $responseData = [];
+    public $request;
 
     /**
-     * @var string|null
+     * @var array|null
      */
-    public $error = null;
+    public $response;
 
     /**
-     * LogApiResponseBroadcast constructor.
-     * @param string      $tenantGuid
-     * @param string      $tenantName
-     * @param string      $tenantHostname
-     * @param string      $className
-     * @param array       $requestData
-     * @param array|null  $responseData
-     * @param string|null $error
+     * @var array|null
+     */
+    public $error;
+
+    /**
+     * LogApiRequestEvent constructor.
+     * @param string     $guid
+     * @param string     $environment
+     * @param DateTime   $timestamp
+     * @param array      $tenant
+     * @param string     $class
+     * @param string     $provider
+     * @param array      $request
+     * @param array|null $response
+     * @param array|null $error
      */
     public function __construct(
-        string $tenantGuid,
-        string $tenantName,
-        string $tenantHostname,
-        string $className,
-        array $requestData = [],
-        array $responseData = null,
-        string $error = null
+        string $guid,
+        string $environment,
+        DateTime $timestamp,
+        array $tenant,
+        string $class,
+        string $provider,
+        array $request,
+        array $response = null,
+        array $error = null
     ) {
-        $this->tenantGuid     = $tenantGuid;
-        $this->tenantName     = $tenantName;
-        $this->tenantHostname = $tenantHostname;
-        $this->className      = $className;
-        $this->requestData    = $requestData;
-        $this->responseData   = $responseData;
-        $this->error          = $error;
+        $this->guid        = $guid;
+        $this->environment = $environment;
+        $this->timestamp   = $timestamp;
+        $this->tenant      = $tenant;
+        $this->class       = $class;
+        $this->provider    = $provider;
+        $this->request     = $request;
+        $this->response    = $response;
+        $this->error       = $error;
     }
 
     /**
@@ -80,6 +97,6 @@ class LogApiResponseBroadcast extends AbstractBroadcast
      */
     public function broadcastOn()
     {
-        return ['log-smash.api.' . $this->tenantGuid];
+        return ['log-smash.api.' . $this->tenant['guid']];
     }
 }

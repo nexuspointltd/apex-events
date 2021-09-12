@@ -2,6 +2,7 @@
 
 namespace Nexus\ApexEvents\Broadcasts\LogSmash\API;
 
+use DateTime;
 use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
 
 /**
@@ -13,48 +14,64 @@ class LogApiRequestBroadcast extends AbstractBroadcast
     /**
      * @var string
      */
-    public $tenantGuid;
+    public $guid;
 
     /**
      * @var string
      */
-    public $tenantName;
+    public $environment;
 
     /**
-     * @var string
+     * @var DateTime
      */
-    public $tenantHostname;
-
-    /**
-     * @var string
-     */
-    public $className;
+    public $timestamp;
 
     /**
      * @var array
      */
-    public $requestData = [];
+    public $tenant;
+
+    /**
+     * @var string
+     */
+    public $class;
+
+    /**
+     * @var string
+     */
+    public $provider;
+
+    /**
+     * @var array
+     */
+    public $request;
 
     /**
      * LogApiRequestBroadcast constructor.
-     * @param string $tenantGuid
-     * @param string $tenantName
-     * @param string $tenantHostname
-     * @param string $className
-     * @param array  $requestData
+     * @param string   $guid
+     * @param string   $environment
+     * @param DateTime $timestamp
+     * @param array    $tenant
+     * @param string   $class
+     * @param string   $provider
+     * @param array    $request
      */
     public function __construct(
-        string $tenantGuid,
-        string $tenantName,
-        string $tenantHostname,
-        string $className,
-        array $requestData = []
+        string $guid,
+        string $environment,
+        DateTime $timestamp,
+        array $tenant,
+        string $class,
+        string $provider,
+        array $request
     ) {
-        $this->tenantGuid     = $tenantGuid;
-        $this->tenantName     = $tenantName;
-        $this->tenantHostname = $tenantHostname;
-        $this->className      = $className;
-        $this->requestData    = $requestData;
+        $this->guid        = $guid;
+        $this->environment = $environment;
+        $this->timestamp   = $timestamp;
+        $this->tenant      = $tenant;
+        $this->class       = $class;
+        $this->provider    = $provider;
+        $this->request     = $request;
     }
 
     /**
@@ -64,6 +81,6 @@ class LogApiRequestBroadcast extends AbstractBroadcast
      */
     public function broadcastOn()
     {
-        return ['log-smash.api.' . $this->tenantGuid];
+        return ['log-smash.api.' . $this->tenant['guid']];
     }
 }
