@@ -2,7 +2,7 @@
 
 namespace Nexus\ApexEvents\Broadcasts\LogSmash\API;
 
-use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;``
+use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
 
 /**
  * Class LogApiResponseBroadcast
