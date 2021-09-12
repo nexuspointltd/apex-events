@@ -1,0 +1,23 @@
+{
+    "name": "nexuspoint/apex-events",
+    "description": "Nexus Point Events - A collection of events that are globally available to the Apex infrastructure",
+    "keywords": ["apex", "cli"],
+    "license": "Proprietary",
+    "type": "project",
+    "require": {
+        "php": "^7.2.5",
+        "laravel/lumen-framework": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nexus\\ApexEvents\\": "app/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
