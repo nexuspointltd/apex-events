@@ -2,7 +2,6 @@
 
 namespace Nexus\ApexEvents\Events\LogSmash\API;
 
-use Illuminate\Support\Arr;
 use Nexus\ApexEvents\Events\AbstractEvent;
 use Nexus\ApexEvents\Interfaces\Events\LogSmashEventInterface;
 
@@ -68,6 +67,7 @@ class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterfac
      * @param array      $request
      * @param array|null $response
      * @param array|null $error
+     * @noinspection DuplicatedCode
      */
     public function __construct(
         string $guid,
@@ -91,7 +91,10 @@ class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterfac
         $this->error       = $error;
     }
 
-    public function getMetaData()
+    /**
+     * @return array
+     */
+    public function getMetaData(): array
     {
         return [
             'guid'        => $this->guid,
@@ -101,12 +104,28 @@ class LogApiResponseEvent extends AbstractEvent implements LogSmashEventInterfac
             'class'       => $this->class,
             'provider'    => $this->provider,
             'error'       => $this->error,
-            'request'     => Arr::except($this->request, ['body']),
-            'response'    => Arr::except($this->response, ['body']),
+            // By including each item in the request array separately we exclude the 'body' attribute as it is too large
+            'request'     => [
+                'method'   => $this->request['method'] ?? null,
+                'target'   => $this->request['target'] ?? null,
+                'uri'      => $this->request['uri'] ?? null,
+                'headers'  => $this->request['headers'] ?? null,
+                'protocol' => $this->request['protocol'] ?? null,
+            ],
+            // By including each item in the response array separately we exclude the 'body' attribute as it is too large
+            'response'    => [
+                'reason_phrase' => $this->response['reason_phrase'] ?? null,
+                'status'        => $this->response['status'] ?? null,
+                'headers'       => $this->response['headers'] ?? null,
+                'protocol'      => $this->response['protocol'] ?? null,
+            ],
         ];
     }
 
-    public function getBlobData()
+    /**
+     * @return array
+     */
+    public function getBlobData(): array
     {
         return [
             'request'  => $this->request,

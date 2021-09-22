@@ -4,7 +4,13 @@ namespace Nexus\ApexEvents\Interfaces\Events;
 
 interface LogSmashEventInterface
 {
-    public function getMetaData();
+    /**
+     * @return array
+     */
+    public function getMetaData(): array;
 
-    public function getBlobData();
+    /**
+     * @return array
+     */
+    public function getBlobData(): array;
 }

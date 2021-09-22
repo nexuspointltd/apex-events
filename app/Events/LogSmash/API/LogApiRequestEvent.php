@@ -2,7 +2,6 @@
 
 namespace Nexus\ApexEvents\Events\LogSmash\API;
 
-use Illuminate\Support\Arr;
 use Nexus\ApexEvents\Events\AbstractEvent;
 use Nexus\ApexEvents\Interfaces\Events\LogSmashEventInterface;
 
@@ -56,6 +55,7 @@ class LogApiRequestEvent extends AbstractEvent implements LogSmashEventInterface
      * @param string $class
      * @param string $provider
      * @param array  $request
+     * @noinspection DuplicatedCode
      */
     public function __construct(
         string $guid,
@@ -75,7 +75,10 @@ class LogApiRequestEvent extends AbstractEvent implements LogSmashEventInterface
         $this->request     = $request;
     }
 
-    public function getMetaData()
+    /**
+     * @return array
+     */
+    public function getMetaData(): array
     {
         return [
             'guid'        => $this->guid,
@@ -84,11 +87,21 @@ class LogApiRequestEvent extends AbstractEvent implements LogSmashEventInterface
             'tenant'      => $this->tenant,
             'class'       => $this->class,
             'provider'    => $this->provider,
-            'request'     => Arr::except($this->request, ['body']),
+            // By including each item in the request array separately we exclude the 'body' attribute as it is too large
+            'request'     => [
+                'method'   => $this->request['method'] ?? null,
+                'target'   => $this->request['target'] ?? null,
+                'uri'      => $this->request['uri'] ?? null,
+                'headers'  => $this->request['headers'] ?? null,
+                'protocol' => $this->request['protocol'] ?? null,
+            ],
         ];
     }
 
-    public function getBlobData()
+    /**
+     * @return array
+     */
+    public function getBlobData(): array
     {
         return [
             'request' => $this->request,
