@@ -22,7 +22,7 @@ This also prevents infinite loops from refiring an Event with the same name as t
 - This repository is ONLY for the stub Event/Broadcast classes needed to make container interoperability work
 - Broadcasts MUST be used for Broadcasting
 - Events MUST NOT be used for Broadcasting
-- Additional packages MUST NOT be included (Laravel framework is currently included simply to aid unit testing)
+- Additional packages MUST NOT be included, this is for pure, native PHP only please. As basic as possible.
 
 #### Systems ####
 
