@@ -1,6 +1,6 @@
 <?php
 
-namespace Nexus\ApexEvents\Broadcasts\LogSmash\API;
+namespace Nexus\ApexEvents\Broadcasts\LogSmash\Export;
 
 use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
 

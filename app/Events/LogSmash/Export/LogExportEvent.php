@@ -1,6 +1,6 @@
 <?php
 
-namespace Nexus\ApexEvents\Events\LogSmash\API;
+namespace Nexus\ApexEvents\Events\LogSmash\Export;
 
 use Nexus\ApexEvents\Events\AbstractEvent;
 use Nexus\ApexEvents\Interfaces\Events\LogSmashEventInterface;
