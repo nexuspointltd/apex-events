@@ -80,6 +80,6 @@ class LogAppImageStoreRequestBroadcast extends AbstractBroadcast
      */
     public function broadcastOn()
     {
-        return ['log-smash.api.' . $this->tenant['guid']];
+        return ['log-smash.app.' . $this->tenant['guid']];
     }
 }

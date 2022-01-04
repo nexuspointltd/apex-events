@@ -31,46 +31,22 @@ class LogExportBroadcast extends AbstractBroadcast
     public $tenant;
 
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $method;
-
-    /**
-     * @var array
-     */
-    public $request;
-
-    /**
      * LogExportBroadcast constructor.
      * @param string $guid
      * @param string $environment
      * @param string $timestamp
      * @param array  $tenant
-     * @param string $type
-     * @param string $method
-     * @param array  $request
      */
     public function __construct(
         string $guid,
         string $environment,
         string $timestamp,
-        array $tenant,
-        string $type,
-        string $method,
-        array $request
+        array $tenant
     ) {
         $this->guid        = $guid;
         $this->environment = $environment;
         $this->timestamp   = $timestamp;
         $this->tenant      = $tenant;
-        $this->type        = $type;
-        $this->method      = $method;
-        $this->request     = $request;
     }
 
     /**
@@ -80,6 +56,6 @@ class LogExportBroadcast extends AbstractBroadcast
      */
     public function broadcastOn()
     {
-        return ['log-smash.api.' . $this->tenant['guid']];
+        return ['log-smash.export.' . $this->tenant['guid']];
     }
 }
