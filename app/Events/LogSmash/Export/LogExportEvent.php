@@ -98,11 +98,11 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
             'guid'          => $this->guid,
             'environment'   => $this->environment,
             'timestamp'     => $this->timestamp,
-            'model type'    => $this->model_type,
+            'model_type'    => $this->model_type,
             'model_id'      => $this->model_id,
             'method'        => $this->method,
             'type'          => $this->type,
-            'dealer ID'     => $this->dealer_id,
+            'dealer_id'     => $this->dealer_id,
             'tenant'        => $this->tenant
         ];
     }
