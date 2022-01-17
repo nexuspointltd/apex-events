@@ -52,16 +52,6 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
     public $dealer_id;
 
     /**
-     * @var int
-     */
-    public $response_code;
-
-    /**
-     * @var string
-     */
-    public $response_body;
-
-    /**
      * @var array
      */
     public $tenant;
@@ -75,8 +65,6 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
      * @param string $method
      * @param string $type
      * @param string $dealer_id
-     * @param int $response_code
-     * @param string $response_body
      * @param array $tenant
      */
     public function __construct(
@@ -88,8 +76,6 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
         string $method,
         string $type,
         string $dealer_id,
-        int $response_code,
-        string $response_body,
         array $tenant
     ) {
         $this->guid             = $guid;
@@ -100,8 +86,6 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
         $this->method           = $method;
         $this->type             = $type;
         $this->dealer_id        = $dealer_id;
-        $this->response_code    = $response_code;
-        $this->response_body    = $response_body;
         $this->tenant           = $tenant;
     }
 
@@ -119,8 +103,6 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
             'method'        => $this->method,
             'type'          => $this->type,
             'dealer ID'     => $this->dealer_id,
-            'response_code' => $this->response_code,
-            'response_body' => $this->response_body,
             'tenant'        => $this->tenant
         ];
     }
