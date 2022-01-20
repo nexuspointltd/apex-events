@@ -29,27 +29,27 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
     /**
      * @var string
      */
-    public $model_type;
+    public $current_status;
 
     /**
      * @var string
      */
-    public $model_id;
+    public $final_status;
+
+    /**
+     * @var int
+     */
+    public $rows_exported;
 
     /**
      * @var string
      */
-    public $method;
+    public $details;
 
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $dealer_id;
+    public $finished_at;
 
     /**
      * @var array
@@ -71,21 +71,21 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
         string $guid,
         string $environment,
         string $timestamp,
-        string $model_type,
-        string $model_id,
-        string $method,
-        string $type,
-        string $dealer_id,
+        string $current_status,
+        string $final_status,
+        int $rows_exported,
+        string $details,
+        string $finished_at,
         array $tenant
     ) {
         $this->guid             = $guid;
         $this->environment      = $environment;
         $this->timestamp        = $timestamp;
-        $this->model_type       = $model_type;
-        $this->model_id         = $model_id;
-        $this->method           = $method;
-        $this->type             = $type;
-        $this->dealer_id        = $dealer_id;
+        $this->current_status   = $current_status;
+        $this->final_status     = $final_status;
+        $this->rows_exported    = $rows_exported;
+        $this->details          = $details;
+        $this->finished_at      = $finished_at;
         $this->tenant           = $tenant;
     }
 
@@ -98,11 +98,11 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
             'guid'          => $this->guid,
             'environment'   => $this->environment,
             'timestamp'     => $this->timestamp,
-            'model_type'    => $this->model_type,
-            'model_id'      => $this->model_id,
-            'method'        => $this->method,
-            'type'          => $this->type,
-            'dealer_id'     => $this->dealer_id,
+            'current_status'=> $this->current_status,
+            'final_status'  => $this->final_status,
+            'rows_exported' => $this->rows_exported,
+            'details'       => $this->details,
+            'finished_at'   => $this->finished_at,
             'tenant'        => $this->tenant
         ];
     }
