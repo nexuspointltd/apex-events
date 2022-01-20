@@ -28,27 +28,27 @@ class LogExportBroadcast extends AbstractBroadcast
     /**
      * @var string
      */
-    public $model_type;
+    public $current_status;
 
     /**
      * @var string
      */
-    public $model_id;
+    public $final_status;
+
+    /**
+     * @var int
+     */
+    public $rows_exported;
 
     /**
      * @var string
      */
-    public $method;
+    public $details;
 
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $dealer_id;
+    public $finished_at;
 
     /**
      * @var array
@@ -59,32 +59,32 @@ class LogExportBroadcast extends AbstractBroadcast
      * @param string $guid
      * @param string $environment
      * @param string $timestamp
-     * @param string $model_type
-     * @param string $model_id
-     * @param string $method
-     * @param string $type
-     * @param string $dealer_id
+     * @param string $current_status
+     * @param string $final_status
+     * @param int $rows_exported
+     * @param string $details
+     * @param string $finished_at
      * @param array $tenant
      */
     public function __construct(
         string $guid,
         string $environment,
         string $timestamp,
-        string $model_type,
-        string $model_id,
-        string $method,
-        string $type,
-        string $dealer_id,
+        string $current_status,
+        string $final_status,
+        int $rows_exported,
+        string $details,
+        string $finished_at,
         array $tenant
     ) {
         $this->guid             = $guid;
         $this->environment      = $environment;
         $this->timestamp        = $timestamp;
-        $this->model_type       = $model_type;
-        $this->model_id         = $model_id;
-        $this->method           = $method;
-        $this->type             = $type;
-        $this->dealer_id        = $dealer_id;
+        $this->current_status   = $current_status;
+        $this->final_status     = $final_status;
+        $this->rows_exported    = $rows_exported;
+        $this->details          = $details;
+        $this->finished_at      = $finished_at;
         $this->tenant           = $tenant;
     }
 
