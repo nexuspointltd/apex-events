@@ -28,12 +28,7 @@ class LogExportBroadcast extends AbstractBroadcast
     /**
      * @var string
      */
-    public $current_status;
-
-    /**
-     * @var string
-     */
-    public $final_status;
+    public $status;
 
     /**
      * @var int
@@ -59,8 +54,7 @@ class LogExportBroadcast extends AbstractBroadcast
      * @param string $guid
      * @param string $environment
      * @param string $timestamp
-     * @param string $current_status
-     * @param string $final_status
+     * @param string $status
      * @param int $rows_exported
      * @param string $details
      * @param string $finished_at
@@ -70,8 +64,7 @@ class LogExportBroadcast extends AbstractBroadcast
         string $guid,
         string $environment,
         string $timestamp,
-        string $current_status,
-        string $final_status,
+        string $status,
         int $rows_exported,
         string $details,
         string $finished_at,
@@ -80,8 +73,7 @@ class LogExportBroadcast extends AbstractBroadcast
         $this->guid             = $guid;
         $this->environment      = $environment;
         $this->timestamp        = $timestamp;
-        $this->current_status   = $current_status;
-        $this->final_status     = $final_status;
+        $this->status           = $status;
         $this->rows_exported    = $rows_exported;
         $this->details          = $details;
         $this->finished_at      = $finished_at;
