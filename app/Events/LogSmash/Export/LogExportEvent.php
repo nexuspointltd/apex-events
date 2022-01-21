@@ -29,12 +29,7 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
     /**
      * @var string
      */
-    public $current_status;
-
-    /**
-     * @var string
-     */
-    public $final_status;
+    public $status;
 
     /**
      * @var int
@@ -60,19 +55,17 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
      * @param string $guid
      * @param string $environment
      * @param string $timestamp
-     * @param string $model_type
-     * @param string $model_id
-     * @param string $method
-     * @param string $type
-     * @param string $dealer_id
+     * @param string $status
+     * @param int $rows_exported
+     * @param string $details
+     * @param string $finished_at
      * @param array $tenant
      */
     public function __construct(
         string $guid,
         string $environment,
         string $timestamp,
-        string $current_status,
-        string $final_status,
+        string $status,
         int $rows_exported,
         string $details,
         string $finished_at,
@@ -81,8 +74,7 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
         $this->guid             = $guid;
         $this->environment      = $environment;
         $this->timestamp        = $timestamp;
-        $this->current_status   = $current_status;
-        $this->final_status     = $final_status;
+        $this->status           = $status;
         $this->rows_exported    = $rows_exported;
         $this->details          = $details;
         $this->finished_at      = $finished_at;
@@ -98,8 +90,7 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
             'guid'          => $this->guid,
             'environment'   => $this->environment,
             'timestamp'     => $this->timestamp,
-            'current_status'=> $this->current_status,
-            'final_status'  => $this->final_status,
+            'status'        => $this->status,
             'rows_exported' => $this->rows_exported,
             'details'       => $this->details,
             'finished_at'   => $this->finished_at,
