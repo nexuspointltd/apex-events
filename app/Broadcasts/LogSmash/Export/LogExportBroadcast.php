@@ -64,10 +64,10 @@ class LogExportBroadcast extends AbstractBroadcast
         string $guid,
         string $environment,
         string $timestamp,
-        string $status,
-        int $rows_exported,
-        string $details,
-        string $finished_at,
+        string $status = null,
+        int $rows_exported = null,
+        string $details = null,
+        string $finished_at = null,
         array $tenant
     ) {
         $this->guid             = $guid;
