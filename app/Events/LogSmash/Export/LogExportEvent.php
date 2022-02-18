@@ -57,8 +57,8 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
      * @param string $timestamp
      * @param string $status
      * @param int|null $rows_exported
-     * @param string $details
-     * @param string $finished_at
+     * @param string|null $details
+     * @param string|null $finished_at
      * @param array $tenant
      */
     public function __construct(
@@ -67,8 +67,8 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
         string $timestamp,
         string $status,
         ?int $rows_exported,
-        string $details,
-        string $finished_at,
+        ?string $details,
+        ?string $finished_at,
         array $tenant
     ) {
         $this->guid             = $guid;
@@ -76,8 +76,8 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
         $this->timestamp        = $timestamp;
         $this->status           = $status;
         $this->rows_exported    = $rows_exported ?? 0;
-        $this->details          = $details;
-        $this->finished_at      = $finished_at;
+        $this->details          = $details ?? '';
+        $this->finished_at      = $finished_at ?? '';
         $this->tenant           = $tenant;
     }
 
@@ -103,7 +103,6 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
      */
     public function getBlobData(): array
     {
-        return [
-        ];
+        return [];
     }
 }
