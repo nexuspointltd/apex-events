@@ -55,7 +55,7 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
      * @param string $guid
      * @param string $environment
      * @param string $timestamp
-     * @param string $status
+     * @param string|null $status
      * @param int|null $rows_exported
      * @param string|null $details
      * @param string|null $finished_at
@@ -65,7 +65,7 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
         string $guid,
         string $environment,
         string $timestamp,
-        string $status,
+        ?string $status,
         ?int $rows_exported,
         ?string $details,
         ?string $finished_at,
@@ -74,7 +74,7 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
         $this->guid             = $guid;
         $this->environment      = $environment;
         $this->timestamp        = $timestamp;
-        $this->status           = $status;
+        $this->status           = $status ?? '';
         $this->rows_exported    = $rows_exported ?? 0;
         $this->details          = $details ?? '';
         $this->finished_at      = $finished_at ?? '';
