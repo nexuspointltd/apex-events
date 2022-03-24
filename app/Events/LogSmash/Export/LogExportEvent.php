@@ -27,58 +27,50 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
     public $timestamp;
 
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $rows_exported;
-
-    /**
-     * @var string
-     */
-    public $details;
-
-    /**
-     * @var string
-     */
-    public $finished_at;
-
-    /**
      * @var array
      */
     public $tenant;
 
     /**
-     * @param string $guid
-     * @param string $environment
-     * @param string $timestamp
+     * @var array
+     */
+    public $export;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @param string      $guid
+     * @param string      $environment
+     * @param string      $timestamp
+     * @param array       $tenant
+     * @param array|null  $export
      * @param string|null $status
-     * @param int|null $rows_exported
-     * @param string|null $details
-     * @param string|null $finished_at
-     * @param array $tenant
+     * @param string|null $message
      */
     public function __construct(
-        string $guid,
-        string $environment,
-        string $timestamp,
+        string  $guid,
+        string  $environment,
+        string  $timestamp,
+        array   $tenant,
+        ?array  $export,
         ?string $status,
-        ?int $rows_exported,
-        ?string $details,
-        ?string $finished_at,
-        array $tenant
+        ?string $message
     ) {
-        $this->guid             = $guid;
-        $this->environment      = $environment;
-        $this->timestamp        = $timestamp;
-        $this->status           = $status ?? '';
-        $this->rows_exported    = $rows_exported ?? 0;
-        $this->details          = $details ?? '';
-        $this->finished_at      = $finished_at ?? '';
-        $this->tenant           = $tenant;
+        $this->guid        = $guid;
+        $this->environment = $environment;
+        $this->timestamp   = $timestamp;
+        $this->tenant      = $tenant;
+        $this->export      = $export ?? [];
+        $this->status      = $status ?? '';
+        $this->message     = $message ?? '';
     }
 
     /**
@@ -87,14 +79,13 @@ class LogExportEvent extends AbstractEvent implements LogSmashEventInterface
     public function getMetaData(): array
     {
         return [
-            'guid'          => $this->guid,
-            'environment'   => $this->environment,
-            'timestamp'     => $this->timestamp,
-            'status'        => $this->status,
-            'rows_exported' => $this->rows_exported,
-            'details'       => $this->details,
-            'finished_at'   => $this->finished_at,
-            'tenant'        => $this->tenant
+            'guid'        => $this->guid,
+            'environment' => $this->environment,
+            'timestamp'   => $this->timestamp,
+            'tenant'      => $this->tenant,
+            'export'      => $this->export,
+            'status'      => $this->status,
+            'message'     => $this->message,
         ];
     }
 
