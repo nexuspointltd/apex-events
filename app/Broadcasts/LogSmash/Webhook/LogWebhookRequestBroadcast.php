@@ -5,10 +5,10 @@ namespace Nexus\ApexEvents\Broadcasts\LogSmash\Webhook;
 use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
 
 /**
- * Class LogWebhookBroadcast
+ * Class LogWebhookRequestBroadcast
  * @package Nexus\ApexEvents\Broadcasts\LogSmash
  */
-class LogWebhookBroadcast extends AbstractBroadcast
+class LogWebhookRequestBroadcast extends AbstractBroadcast
 {
     /**
      * @var string
@@ -51,7 +51,7 @@ class LogWebhookBroadcast extends AbstractBroadcast
     public $request;
 
     /**
-     * LogWebhookBroadcast constructor.
+     * LogWebhookRequestBroadcast constructor.
      * @param string $guid
      * @param string $environment
      * @param string $timestamp

@@ -6,10 +6,10 @@ use Nexus\ApexEvents\Events\AbstractEvent;
 use Nexus\ApexEvents\Interfaces\Events\LogSmashEventInterface;
 
 /**
- * Class LogWebhookEvent
+ * Class LogWebhookRequestEvent
  * @package Nexus\ApexEvents\Events\LogSmash
  */
-class LogWebhookEvent extends AbstractEvent implements LogSmashEventInterface
+class LogWebhookRequestEvent extends AbstractEvent implements LogSmashEventInterface
 {
     /**
      * @var string
@@ -52,7 +52,7 @@ class LogWebhookEvent extends AbstractEvent implements LogSmashEventInterface
     public $request;
 
     /**
-     * LogWebhookEvent constructor.
+     * LogWebhookRequestEvent constructor.
      * @param string $guid
      * @param string $environment
      * @param string $timestamp
