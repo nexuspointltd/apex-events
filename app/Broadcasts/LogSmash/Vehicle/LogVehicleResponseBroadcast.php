@@ -2,13 +2,13 @@
 
 namespace Nexus\ApexEvents\Broadcasts\LogSmash\Vehicle;
 
-use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
+use Nexus\ApexEvents\Broadcasts\AbstractLogsmashBroadcast;
 
 /**
- * Class LogWebhookRequestBroadcast
+ * Class LogVehicleResponseBroadcast
  * @package Nexus\ApexEvents\Broadcasts\LogSmash
  */
-class LogVehicleResponseBroadcast extends AbstractBroadcast
+class LogVehicleResponseBroadcast extends AbstractLogsmashBroadcast
 {
     /**
      * @var string
@@ -61,7 +61,7 @@ class LogVehicleResponseBroadcast extends AbstractBroadcast
     public $error;
 
     /**
-     * LogWebhookRequestBroadcast constructor.
+     * LogVehicleResponseBroadcast constructor.
      * @param string $guid
      * @param string $environment
      * @param string $timestamp

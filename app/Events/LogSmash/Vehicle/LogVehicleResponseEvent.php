@@ -62,7 +62,7 @@ class LogVehicleResponseEvent extends AbstractEvent implements LogSmashEventInte
     public $error;
 
     /**
-     * LogWebhookRequestEvent constructor.
+     * LogVehicleResponseEvent constructor.
      * @param string $guid
      * @param string $environment
      * @param string $timestamp
