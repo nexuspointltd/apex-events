@@ -57,7 +57,7 @@ class LogVehicleRequestEvent extends AbstractEvent implements LogSmashEventInter
     public $extra;
 
     /**
-     * LogWebhookRequestEvent constructor.
+     * LogVehicleRequestEvent constructor.
      * @param string $guid
      * @param string $environment
      * @param string $timestamp

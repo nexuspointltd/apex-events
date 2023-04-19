@@ -2,13 +2,13 @@
 
 namespace Nexus\ApexEvents\Broadcasts\LogSmash\App;
 
-use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
+use Nexus\ApexEvents\Broadcasts\AbstractLogsmashBroadcast;
 
 /**
  * Class LogAppImageStoreRequestBroadcast
  * @package Nexus\ApexEvents\Broadcasts\LogSmash
  */
-class LogAppImageStoreRequestBroadcast extends AbstractBroadcast
+class LogAppImageStoreRequestBroadcast extends AbstractLogsmashBroadcast
 {
     /**
      * @var string

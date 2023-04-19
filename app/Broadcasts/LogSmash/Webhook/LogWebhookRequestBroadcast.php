@@ -2,13 +2,13 @@
 
 namespace Nexus\ApexEvents\Broadcasts\LogSmash\Webhook;
 
-use Nexus\ApexEvents\Broadcasts\AbstractBroadcast;
+use Nexus\ApexEvents\Broadcasts\AbstractLogsmashBroadcast;
 
 /**
  * Class LogWebhookRequestBroadcast
  * @package Nexus\ApexEvents\Broadcasts\LogSmash
  */
-class LogWebhookRequestBroadcast extends AbstractBroadcast
+class LogWebhookRequestBroadcast extends AbstractLogsmashBroadcast
 {
     /**
      * @var string
