@@ -10,4 +10,9 @@ abstract class AbstractBroadcast implements ShouldBroadcast
 {
     use InteractsWithSockets;
     use SerializesModels;
+
+    public function broadcastQueue()
+    {
+        return config('queue.prefix') . 'logsmash';
+    }
 }
